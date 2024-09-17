@@ -1,32 +1,27 @@
-<h1>Sign Up</h1>
-
-<%= form_for @user do |f| %>
+<h1>Users#new</h1>
+<%= form_with model: @user do |f| %>
+  <% if @user.errors.any? %>
+    <div>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, autofocus: true %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
   </div>
-  <br>
   <div>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, autofocus: true %>
-  </div>
-  <br>
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-  <br>
-  <div>
-    <%= f.label :password %>
+    <%= f.label :password %><br>
     <%= f.password_field :password %>
   </div>
-  <br>
   <div>
-    <%= f.label :password_confirmation %>
+    <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %>
   </div>
-  <br>
-  <div>
-    <%= f.submit "Sign up!" %>
-  </div>
+  <p>
+    <%= f.submit %>
+  </p>
 <% end %>

@@ -1,16 +1,14 @@
-<h1>Log In</h1>
-<%= form_for :login do |f| %>
+<h1>Login page</h1>
+<%= form_with model: @user, url: user_sessions_path do |f| %>
   <div>
-    <%= f.label :email %>
-    <%= f.text_field :email, autofocus: true %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
   </div>
-  <br>
   <div>
-    <%= f.label :password %>
+    <%= f.label :password %><br>
     <%= f.password_field :password %>
   </div>
-  <br>
-  <div>
-    <%= f.submit "Log In" %>
-  </div>
+  <p>
+    <%= f.submit 'Login' %>
+  </p>
 <% end %>
