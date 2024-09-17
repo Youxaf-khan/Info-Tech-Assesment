@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       flash[:alert] = 'Login failed'
-      redirect_to new_user_session_path
+      redirect_to new_session_path
     end
   end
 
